@@ -1,0 +1,28 @@
+states: q0 q1 q2 q3 qaccept qreject
+input_alphabet: a b
+tape_alphabet: a b X Y _
+blank: _
+start: q0
+accept: qaccept
+reject: qreject
+test_string: aabb
+
+transitions:
+q0 a q1 X R
+q0 Y q3 Y R
+q0 b qreject b S
+q0 _ qreject _ S
+
+q1 a q1 a R
+q1 Y q1 Y R
+q1 b q2 Y L
+q1 _ qreject _ S
+
+q2 a q2 a L
+q2 Y q2 Y L
+q2 X q0 X R
+
+q3 Y q3 Y R
+q3 _ qaccept _ S
+q3 a qreject a S
+q3 b qreject b S

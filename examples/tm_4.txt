@@ -1,0 +1,16 @@
+states: q0 q1 qaccept qreject
+input_alphabet: 0 1
+tape_alphabet: 0 1 _
+blank: _
+start: q0
+accept: qaccept
+reject: qreject
+test_string: 0000
+
+transitions:
+q0 0 q0 0 R
+q0 1 q1 1 R
+q1 0 q1 0 R
+q1 1 q0 1 R
+q0 _ qaccept _ S
+q1 _ qreject _ S
